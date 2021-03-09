@@ -1,0 +1,26 @@
+.wrapper-films {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.films {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-top: 5vh;
+
+  a {
+    display: flex;
+    align-items: center;
+    height: 120px;
+    width: 120px;
+    padding: 1rem;
+    text-align: center;
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, .5);
+    border: 1px solid $colorWhite;
+    border-radius: 8px;
+  }
+}

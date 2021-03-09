@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Fascinate&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;400;800&display=swap');
+
 // Variables
 // ===============
-
+$colorWhite: #ecf0f1;
 
 // Tools
 // ===============
@@ -10,11 +13,30 @@
 
 // Generic
 // ===============
+h1 {
+  font-family: "Fascinate", sans-serif;
+  font-size: 4rem;
+  text-align: center;
+  color: $colorWhite;
+  padding-top: 3vh;
+}
 
+a {
+  font-family: "JetBrains", sans-serif;
+  color: $colorWhite;
+  line-height: 1.3;
+}
+
+.container {
+  width: 100%;
+  padding: 1rem;
+}
 
 // Pages
 // ===============
-
+@import "pages/home";
+@import "pages/films";
 
 // Modules
 // ===============
+@import "modules/navbar";

@@ -1,0 +1,26 @@
+.navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  a {
+    font-family: "JetBrains", sans-serif;
+    font-weight: 400;
+    color: $colorWhite;
+    transition: all .3s;
+  }
+
+  a.active {
+    font-weight: 800;
+  }
+}
