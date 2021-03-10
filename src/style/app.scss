@@ -21,10 +21,9 @@ h1 {
   padding-top: 3vh;
 }
 
-a {
+a, p, h2, span, li {
   font-family: "JetBrains", sans-serif;
   color: $colorWhite;
-  line-height: 1.3;
 }
 
 .container {
@@ -36,7 +35,9 @@ a {
 // ===============
 @import "pages/home";
 @import "pages/films";
+@import "pages/people";
 
 // Modules
 // ===============
 @import "modules/navbar";
+@import "modules/loader";

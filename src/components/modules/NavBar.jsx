@@ -12,7 +12,7 @@ const NavBar = () => {
                     <NavLink to="/films" activeClassName="active">Films</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/peoples" activeClassName="active">Peoples</NavLink>
+                    <NavLink to="/people" activeClassName="active">People</NavLink>
                 </li>
                 <li>
                     <NavLink to="/planets" activeClassName="active">Planets</NavLink>
