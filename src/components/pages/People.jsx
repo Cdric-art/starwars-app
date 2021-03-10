@@ -19,7 +19,7 @@ const People = () => {
             .catch(e => console.log(e))
     }
 
-    const searchResult = (e) => {
+    const searchResultInput = (e) => {
         if (e.key === 'Enter') {
             setData(null)
             apiFetch(`/people/?search=${search}`)
@@ -28,6 +28,16 @@ const People = () => {
                 })
                 .catch(e => console.log(e))
         }
+    }
+
+    const searchResult = (query) => {
+        setSearch('')
+        setData(null)
+        apiFetch(`/people/?search=${query}`)
+            .then(res => {
+                setResult(res)
+            })
+            .catch(e => console.log(e))
     }
 
     const handleNext = () => {
@@ -42,7 +52,7 @@ const People = () => {
     return (
         <div className="people">
             <div className="search">
-                <input type="text" onKeyPress={searchResult} value={search}
+                <input type="text" onKeyPress={searchResultInput} value={search}
                        onChange={(e) => setSearch(e.target.value)}/>
                 <button type="button" onClick={allResults}>Voir tous les résultats</button>
             </div>
@@ -50,14 +60,14 @@ const People = () => {
                 <>
                     <div className="all-result">
                         {data.results.map((people, i) => (
-                            <h2 key={i}>{people.name}</h2>
+                            <h2 onClick={() => searchResult(people.name)} key={i}>{people.name}</h2>
                         ))}
                     </div>
                     <p onClick={handleNext} className="next">Next</p>
                 </>
             ) : null}
             {result ? (
-                <SearchResult result={result.results[0]} />
+                <SearchResult result={result.results[0]}/>
             ) : null}
         </div>
     );
