@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import Loader from "../modules/Loader";
-import {apiFetch} from "../ui/apiFetch";
+import {apiFetch} from "../libs/apiFetch";
 
 const Films = () => {
 

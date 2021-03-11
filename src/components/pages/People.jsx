@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {apiFetch} from "../ui/apiFetch";
+import {apiFetch} from "../libs/apiFetch";
 import SearchResult from "../modules/SearchResult";
 
 const People = () => {

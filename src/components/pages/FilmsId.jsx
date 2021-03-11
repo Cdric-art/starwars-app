@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Link, useParams} from "react-router-dom";
-import {apiFetch} from "../ui/apiFetch";
+import {apiFetch} from "../libs/apiFetch";
 import Loader from "../modules/Loader";
 
 const FilmsId = () => {
