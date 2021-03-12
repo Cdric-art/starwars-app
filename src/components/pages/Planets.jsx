@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from 'react';
-import {apiFetch} from "../libs/apiFetch";
-import SearchResultPeople from "../modules/SearchResultPeople";
+import React from 'react';
 import AllResult from "../modules/AllResult";
+import {apiFetch} from "../libs/apiFetch";
+import {useEffect, useState} from "react";
+import SearchResultPlanets from "../modules/SearchResultPlanets";
 
-const People = () => {
+const Planets = () => {
 
     const [search, setSearch] = useState('')
     const [result, setResult] = useState(null)
@@ -13,7 +14,7 @@ const People = () => {
 
     useEffect(() => {
         setResult(null)
-        apiFetch(`/people`)
+        apiFetch(`/planets`)
             .then(res => {
                 setData(res)
             })
@@ -23,7 +24,7 @@ const People = () => {
     const searchResultInput = (e) => {
         if (e.key === 'Enter') {
             setData(null)
-            apiFetch(`/people/?search=${search}`)
+            apiFetch(`/planets/?search=${search}`)
                 .then(res => {
                     setResult(res)
                 })
@@ -34,7 +35,7 @@ const People = () => {
     const searchResult = (query) => {
         setSearch('')
         setData(null)
-        apiFetch(`/people/?search=${query}`)
+        apiFetch(`/planets/?search=${query}`)
             .then(res => {
                 setResult(res)
             })
@@ -42,7 +43,7 @@ const People = () => {
     }
 
     const handleNext = () => {
-        apiFetch(`/people/?page=${count}`)
+        apiFetch(`/planets/?page=${count}`)
             .then(res => {
                 setData(res)
             })
@@ -50,19 +51,17 @@ const People = () => {
         setCount(count + 1)
     };
 
-    return (
-        <div className="people">
-            <div className="search">
-                <input type="text" onKeyPress={searchResultInput} value={search} onChange={(e) => setSearch(e.target.value)}/>
-            </div>
-            {data && (
-                <AllResult data={data.results} search={searchResult} next={handleNext}/>
-            )}
-            {result && (
-                <SearchResultPeople result={result.results[0]}/>
-            )}
+    return <div className="planets">
+        <div className="search">
+            <input type="text" onKeyPress={searchResultInput} value={search} onChange={(e) => setSearch(e.target.value)}/>
         </div>
-    );
+        {data && (
+            <AllResult data={data.results} search={searchResult} next={handleNext}/>
+        )}
+        {result && (
+            <SearchResultPlanets result={result.results[0]}/>
+        )}
+    </div>
 };
 
-export default People;
+export default Planets;

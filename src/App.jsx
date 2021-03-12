@@ -8,6 +8,7 @@ import FilmsId from "./components/pages/FilmsId";
 import People from "./components/pages/People";
 
 import './style/app.scss'
+import Planets from "./components/pages/Planets";
 
 function App() {
 
@@ -16,9 +17,10 @@ function App() {
             <BrowserRouter>
                 <h1>Star Wars</h1>
                 <Switch>
+                    <Route exact path="/planets" component={Planets} />
                     <Route exact path="/people" component={People} />
-                    <Route exact path="/films" component={Films} />
                     <Route exact path="/films/:id" component={FilmsId} />
+                    <Route exact path="/films" component={Films} />
                     <Route exact path="/" component={Home} />
                 </Switch>
                 <NavBar />
